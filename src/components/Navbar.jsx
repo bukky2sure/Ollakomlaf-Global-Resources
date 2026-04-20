@@ -8,8 +8,8 @@ export default function Navbar() {
 
   const linkStyle = ({ isActive }) =>
     isActive
-      ? "text-yellow-300 font-semibold"
-      : "hover:text-yellow-300";
+      ? "text-yellow-300 md:font-semibold font-bold"
+      : "hover:text-yellow-300 md:font-semibold font-bold";
 
   return (
     <nav className="bg-blue-800 text-white shadow-md">
@@ -20,7 +20,7 @@ export default function Navbar() {
           <img
             src={logoP}
             alt="logo"
-            className="w-14 h-14 md:w-16 md:h-16 object-contain"
+            className="w-24 h-24 md:w-24 md:h-24 object-contain"
           />
           <h1 className="text-sm md:text-lg font-bold tracking-wide">
             OLLARKOMLAF
@@ -45,7 +45,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden text-2xl cursor-pointer ">
+        <div className="md:hidden text-2xl cursor-pointer mr-6">
           {menuOpen ? (
             <FaTimes onClick={() => setMenuOpen(false)} />
           ) : (
@@ -56,14 +56,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-blue-800 px-6 pb-6 space-y-4 text-center text-lg flex flex-col ">
+        <div className="md:hidden bg-blue-800 px-6 pb-6 space-y-4 text-center text-lg flex flex-col font-extrabold">
           <NavLink to="/" onClick={() => setMenuOpen(false)} className={linkStyle}>Home</NavLink>
           <NavLink to="/about" onClick={() => setMenuOpen(false)} className={linkStyle}>AboutUs</NavLink>
           <NavLink to="/products" onClick={() => setMenuOpen(false)} className={linkStyle}>Products</NavLink>
           <NavLink to="/contact" onClick={() => setMenuOpen(false)} className={linkStyle}>ContactUs</NavLink>
 
           <Link to="/contact" onClick={() => setMenuOpen(false)}>
-            <button className="mt-4 bg-blue-700 hover:bg-white hover:text-blue-800 text-yellow-400 px-5 py-2 rounded-full font-bold transition w-full">
+            <button className="mt-4 bg-blue-700 hover:bg-white hover:text-blue-800 text-yellow-400 px-5 py-2 rounded-full font-extrabold transition w-full">
               Get Started
             </button>
           </Link>
