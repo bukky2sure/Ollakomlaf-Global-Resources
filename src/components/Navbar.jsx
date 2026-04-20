@@ -45,7 +45,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden text-2xl cursor-pointer">
+        <div className="md:hidden text-2xl cursor-pointer ">
           {menuOpen ? (
             <FaTimes onClick={() => setMenuOpen(false)} />
           ) : (
@@ -56,7 +56,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-blue-800 px-6 pb-6 space-y-4 text-center text-lg">
+        <div className="md:hidden bg-blue-800 px-6 pb-6 space-y-4 text-center text-lg flex flex-col ">
           <NavLink to="/" onClick={() => setMenuOpen(false)} className={linkStyle}>Home</NavLink>
           <NavLink to="/about" onClick={() => setMenuOpen(false)} className={linkStyle}>AboutUs</NavLink>
           <NavLink to="/products" onClick={() => setMenuOpen(false)} className={linkStyle}>Products</NavLink>

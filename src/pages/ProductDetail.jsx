@@ -40,42 +40,53 @@ export default function ProductDetail() {
   const product = products.find((p) => p.id === Number(id));
 
   if (!product) {
-    return <div className="text-center py-20">Product not found</div>;
+    return (
+      <div className="text-center py-20 text-lg font-semibold">
+        Product not found
+      </div>
+    );
   }
 
   const handleContactClick = () => {
-    // Navigate to contact page
     navigate("/contact", { state: { productName: product.name } });
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
-      <Link to="/products" className="text-blue-600 underline">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-8 md:py-12">
+      
+      {/* Back Button */}
+      <Link
+        to="/products"
+        className="text-blue-600 hover:underline text-sm sm:text-base"
+      >
         ← Back to Products
       </Link>
 
-      <div className="grid md:grid-cols-2 gap-10 mt-6">
+      {/* Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-6 items-center">
         
         {/* IMAGE */}
-        <div className="bg-gray-100 rounded-xl flex items-center justify-center p-6">
+        <div className="bg-gray-100 rounded-xl flex items-center justify-center p-4 sm:p-6">
           <img
             src={product.image}
             alt={product.name}
-            className="max-h-[400px] object-contain"
+            className="w-full max-h-[300px] sm:max-h-[400px] object-contain"
           />
         </div>
 
         {/* DETAILS */}
-        <div>
-          <h1 className="text-3xl font-bold text-blue-900 mb-4">
+        <div className="text-center md:text-left">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-4">
             {product.name}
           </h1>
 
-          <p className="text-gray-700 mb-6">{product.desc}</p>
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+            {product.desc}
+          </p>
 
           <button
             onClick={handleContactClick}
-            className="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition"
+            className="w-full sm:w-auto bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition font-semibold"
           >
             Contact for Purchase
           </button>
